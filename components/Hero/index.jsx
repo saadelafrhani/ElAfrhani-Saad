@@ -24,7 +24,7 @@ const Hero = () => {
         </p>
         <div className="my-7 flex justify-start items-center gap-4 flex-wrap">
           <button className="bg-teal-500 py-2 px-4 font-bold text-white border-2 border-teal-500 rounded-md ease-in-out duration-150 hover:text-white hover:bg-transparent hover:border-white" title="View Resume">
-            <a href={"/ElAfrhganiSaad.pdf"} target='_blank' el="noreferrer">
+            <a href={"/ElAfrhganiSaad.pdf"} target='_blank' rel="noreferrer">
               <span className="flex justify-start items-center gap-1">
                 <span>View Resume</span>
                 <RiProfileLine />
