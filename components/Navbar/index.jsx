@@ -24,37 +24,40 @@ const Navbar = () => {
                 </h2>
             </div>
             <nav>
-                <ul 
+                <ul
                     className={`menu hidden absolute left-0 top-0 m-0 py-20 pt-16 px-4 bg-black z-40 w-full h-52 sm:w-unset sm:h-auto sm:bg-transparent sm:flex sm:py-0 sm:static sm:left-unset sm:top-unset ${styles.menu} ${menuOpen ? `${styles.open}` : ""}`}>
                     <li className="mb-4 mt-2 mx-0 sm:mb-0 sm:mt-0 sm:mx-3" title="Experiences">
                         {/*contact career*/}
-                        <Link href="/career" className="text-1xs text-white font-semibold ease-in-out duration-150 hover:text-teal-400" onClick={() => closeMenu()}>
-                            Career
+                        <Link href="/career" onClick={() => closeMenu()}>
+                            <span className="text-1xs text-white font-semibold ease-in-out duration-150 hover:text-teal-400 cursor-pointer">Career</span>
                         </Link>
                     </li>
                     <li className="mb-4 mx-0 sm:mb-0 sm:mx-3" title="Projects">
                         {/*blog*/}
-                        <Link href="/blog" className="text-1xs text-white font-semibold ease-in-out duration-150 hover:text-teal-400" onClick={() => closeMenu()}>
-                            blog
+                        <Link href="/blog" onClick={() => closeMenu()}>
+                            <span className="text-1xs text-white font-semibold ease-in-out duration-150 hover:text-teal-400 cursor-pointer">Blog</span>
                         </Link>
                     </li>
                     <li className="mb-4 mx-0 sm:mb-0 sm:mx-3" title="Contact">
                         {/*contact*/}
-                        <Link href="/contact" className="text-1xs text-white font-semibold ease-in-out duration-150 hover:text-teal-400" onClick={() => closeMenu()}>
-                            Contact
+                        <Link href="/contact" onClick={() => closeMenu()}>
+
+                            <span className="text-1xs text-white font-semibold ease-in-out duration-150 hover:text-teal-400 cursor-pointer">
+                                Contact
+                            </span>
                         </Link>
                     </li>
                 </ul>
             </nav>
-            <div 
-                className={`z-50 flex flex-col justify-center items-center sm:hidden ${styles.hamburger} ${menuOpen ? `${styles.open}` : ""}`} 
+            <div
+                className={`z-50 flex flex-col justify-center items-center sm:hidden ${styles.hamburger} ${menuOpen ? `${styles.open}` : ""}`}
                 onClick={() => SetMenuOpen(!menuOpen)}>
                 <span className="h-0.5 w-7 mb-1.5 bg-white"></span>
                 <span className="h-0.5 w-7 mb-1.5 bg-white"></span>
                 <span className="h-0.5 w-7 mb-1.5 bg-white"></span>
             </div>
         </header>
-  )
+    )
 }
 
 export default Navbar;
