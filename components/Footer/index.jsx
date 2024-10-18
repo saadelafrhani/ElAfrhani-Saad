@@ -2,15 +2,15 @@ import Link from "next/link";
 import React from "react";
 
 // React Icons
-import { 
-    FaLinkedinIn, 
+import {
+    FaLinkedinIn,
     FaCodepen,
     FaGithub,
     FaTwitter
 } from "react-icons/fa";
 
 const Footer = () => {
-    
+
 
 
 
@@ -22,23 +22,31 @@ const Footer = () => {
                 </h2>
                 <ul className="flex justify-center items-center gap-3">
                     <li className="text-white text-sm" title="LinkedIn">
-                        <Link href="www.linkedin.com/in/saad-el-afrhani-759a26295" className="ease-in-out duration-150 hover:text-teal-500">
-                            <FaLinkedinIn />
+                        <Link href="https://linkedin.com/in/saad-el-afrhani-759a26295">
+                            <span className="ease-in-out duration-150 hover:text-teal-500 cursor-pointer">
+                                <FaLinkedinIn />
+                            </span>
                         </Link>
                     </li>
                     <li className="text-white text-sm" title="Codepen">
-                        <Link href="https://codepen.io/saadelafrhani" className="ease-in-out duration-150 hover:text-teal-500">
-                            <FaCodepen />
+                        <Link href="https://codepen.io/saadelafrhani">
+                            <span className="ease-in-out duration-150 hover:text-teal-500 cursor-pointer">
+                                <FaCodepen />
+                            </span>
                         </Link>
                     </li>
                     <li className="text-white text-sm" title="GitHub">
-                        <Link href="https://github.com/saadelafrhani" className="ease-in-out duration-150 hover:text-teal-500">
-                            <FaGithub />
+                        <Link href="https://github.com/saadelafrhani">
+                            <span className="ease-in-out duration-150 hover:text-teal-500 cursor-pointer">
+                                <FaGithub />
+                            </span>
                         </Link>
                     </li>
                     <li className="text-white text-sm" title="Twitter">
-                        <Link href="https://x.com/saadelafrhani" className="ease-in-out duration-150 hover:text-teal-500">
-                            <FaTwitter />
+                        <Link href="https://x.com/saadelafrhani">
+                            <span className="ease-in-out duration-150 hover:text-teal-500 cursor-pointer">
+                                <FaTwitter />
+                            </span>
                         </Link>
                     </li>
                 </ul>
@@ -54,7 +62,7 @@ const Footer = () => {
                     </li>
                     <li className="text-gray-400 text-sm" title="Projects">
                         <Link href="/blog" className="font-bold ease-in-out duration-150 hover:text-white">
-                            Blog    
+                            Blog
                         </Link>
                     </li>
                     <li className="text-gray-400 text-sm" title="Contact">
@@ -63,7 +71,7 @@ const Footer = () => {
                         </Link>
                     </li>
                 </ul>
-                <h5 className="text-white font-initial text-sm">&copy; 2022 - EL Afrhani Saad. All Rights Reserved.</h5>
+                <h5 className="text-white font-initial text-sm">&copy; 2024 - EL Afrhani Saad. All Rights Reserved.</h5>
             </div>
         </div>
     );

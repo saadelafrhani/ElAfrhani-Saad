@@ -5,10 +5,10 @@ const data = [
 
         id: 1,
         image_url: "https://i.pinimg.com/736x/fe/f3/45/fef345d4901eed34919fd438bfa22128.jpg",
-        work_title: "Blockchain Platform",
-        description: "Developed a secure blockchain platform to facilitate digital asset transactions with a focus on scalability and user experience.",
-        genre: "Digital Assets",
-        lien:"#"
+        work_title: "My Portfolio Website",
+        description: "A fully responsive and scalable portfolio website built using Next.Js and Tailwind CSSu.",
+        genre: "Personal",
+        lien:"https://saadelafrhani.vercel.app/"
 
 
     },
@@ -30,5 +30,4 @@ const data = [
         lien:"https://freshkicks-cc.netlify.app"
     }
 ];
-
 export default data;

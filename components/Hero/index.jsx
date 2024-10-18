@@ -17,16 +17,18 @@ const Hero = () => {
           EL Afrhani Saad
         </h1>
         <p className="text-md text-gray-400 my-4 sm:text-lg sm:leading-8 lg:text-left text-center">
-          Full-stack Development Student with 2 years of focused learning in both front-end and 
+          Full-stack Development Student with 2 years of focused learning in both front-end and
           back-end technologies. Passionate about creating responsive web applications using HTML5,
-           CSS3, JavaScript, React.js. Gaining skills in back-end technologies such as PHP, Python,
-            and MySQL through academic projects and personal learning.
+          CSS3, JavaScript, React.js. Gaining skills in back-end technologies such as PHP, Python,
+          and MySQL through academic projects and personal learning.
         </p>
         <div className="my-7 flex justify-start items-center gap-4 flex-wrap">
           <button className="bg-teal-500 py-2 px-4 font-bold text-white border-2 border-teal-500 rounded-md ease-in-out duration-150 hover:text-white hover:bg-transparent hover:border-white" title="View Resume">
-            <a href="/ElAfrhganiSaad.pdf" className="flex justify-start items-center gap-1">
-              <span>View Resume</span>
-              <RiProfileLine />
+            <a href={"/ElAfrhganiSaad.pdf"} target='_blank'>
+              <span className="flex justify-start items-center gap-1">
+                <span>View Resume</span>
+                <RiProfileLine />
+              </span>
             </a>
           </button>
           <button className="bg-white py-2 px-4 font-bold text-teal-500 border-2 border-white rounded-md ease-in-out duration-150 hover:text-white hover:bg-transparent hover:border-white" title="Get in touch">
@@ -51,7 +53,7 @@ const Hero = () => {
               </a>
             </li>
             <li title="LinkedIn">
-              <a href="www.linkedin.com/in/saad-el-afrhani-759a26295" className="text-teal-500 text-md ease-in-out duration-150 hover:text-white">
+              <a href="https://linkedin.com/in/saad-el-afrhani-759a26295" className="text-teal-500 text-md ease-in-out duration-150 hover:text-white">
                 <FiLinkedin />
               </a>
             </li>
