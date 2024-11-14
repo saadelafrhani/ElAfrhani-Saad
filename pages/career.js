@@ -2,10 +2,8 @@ import Head from 'next/head';
 
 // Components
 import Navbar from '../components/Navbar';
-//import Hero from '../components/Hero';
 import Career from '../components/career';
-import Works from '../components/Works';
-//import Contact from '../components/Contact';
+import Projects from '../components/Projects';
 import Footer from '../components/Footer';
 
 export default function Home() {
@@ -27,7 +25,7 @@ export default function Home() {
                 <Navbar />
                 {/*<Hero />*/}
                 <Career />
-                <Works />
+                <Projects />
                 {/*<Contact />*/}
                 <Footer />
             </div>
