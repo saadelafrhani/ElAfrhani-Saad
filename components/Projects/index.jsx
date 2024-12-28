@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../../firebase/connection"; // Adjusted path for both files
-import { collection, getDocs } from "firebase/firestore"; // Import Firestore functions
+import { collection, getDocs, query, orderBy } from "firebase/firestore"; // Import Firestore functions
 import { HiOutlineArrowNarrowRight } from "react-icons/hi"; // Ensure you're importing the icon
 
 const Projects = () => {
@@ -9,7 +9,8 @@ const Projects = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, "projects"));
+                const q = query(collection(db, "projects"), orderBy("timestamp"));
+                const querySnapshot = await getDocs(q);
                 const projectsData = querySnapshot.docs.map(doc => doc.data());
                 setProjects(projectsData);
             } catch (error) {

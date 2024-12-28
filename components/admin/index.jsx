@@ -1,19 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getFirestore, addDoc, collection, deleteDoc, doc, getDocs } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
-
-// Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyAETSqOdogTOK0YHQz8BXDtn7o1z2NYY68",
-    authDomain: "myportfolio-saadelafrhani.firebaseapp.com",
-    projectId: "myportfolio-saadelafrhani",
-    storageBucket: "myportfolio-saadelafrhani.firebasestorage.app",
-    messagingSenderId: "886796741752",
-    appId: "1:886796741752:web:d3370891c8342b630d118d",
-    measurementId: "G-CB0F7833DT",
-};
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { addDoc, collection, deleteDoc, doc, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/connection"; // Adjusted path for both files
 
 const Admin = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -89,10 +76,13 @@ const Admin = () => {
         }
     };
 
-    // Handle login
+       // Handle login
     const handleLogin = (e) => {
         e.preventDefault();
-        if (username === 'saad' && password === 'zoubi') {
+        const adminUsername = process.env.NEXT_PUBLIC_ADMIN_USERNAME;
+        const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+        
+        if (username === adminUsername && password === adminPassword) {
             setIsLoggedIn(true);
         } else {
             alert('Invalid credentials');
