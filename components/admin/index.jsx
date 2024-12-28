@@ -79,8 +79,8 @@ const Admin = () => {
        // Handle login
     const handleLogin = (e) => {
         e.preventDefault();
-        const adminUsername = process.env.NEXT_PUBLIC_ADMIN_USERNAME;
-        const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+        const adminUsername = "saad";
+        const adminPassword = "zoubi";
         
         if (username === adminUsername && password === adminPassword) {
             setIsLoggedIn(true);
