@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../../firebase/connection"; // Adjusted path for both files
-import { collection, getDocs, query, orderBy } from "firebase/firestore"; // Import Firestore functions
-import { HiOutlineArrowNarrowRight } from "react-icons/hi"; // Ensure you're importing the icon
+import { db } from "../../firebase/connection";
+import { collection, getDocs } from "firebase/firestore"; // Removed unused imports
+import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const q = query(collection(db, "projects"), orderBy("timestamp"));
-                const querySnapshot = await getDocs(q);
-                const projectsData = querySnapshot.docs.map(doc => doc.data());
+                console.log("Fetching projects from Firestore...");
+                const querySnapshot = await getDocs(collection(db, "projects"));
+                const projectsData = querySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                console.log("Projects fetched successfully:", projectsData);
                 setProjects(projectsData);
             } catch (error) {
-                console.error("Error fetching projects: ", error);
+                console.error("Error fetching projects:", error.message);
+                setError("Failed to fetch projects. Please check your internet connection and try again.");
             }
         };
 
@@ -28,51 +34,51 @@ const Projects = () => {
                 Digital Explorers is a knowledge exchange initiative
                 between 2 buzzing ICT, offering.
             </p>
-            <div className="grid grid-cols-1 gap-0 lg:grid-cols-3 sm:grid-cols-2 sm:gap-4">
-                {projects.length > 0 ? (
-                    projects.map((project, index) => (
-                        <div
-                            key={index}
-                            title={`${project.title} - ${project.genre}`}
-                            className="bg-cyan-900 rounded-lg p-4 max-w-4xl m-auto mb-4 w-full grid grid-cols-1 gap-0 ease-in-out duration-150 hover:bg-cyan-800 sm:mb-0"
-                        >
-                            <div className="w-45 flex justify-center items-center">
+            {error ? (
+                <p className="text-red-500">{error}</p>
+            ) : (
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 sm:grid-cols-2">
+                    {projects.length > 0 ? (
+                        projects.map((project) => (
+                            <div
+                                key={project.id}
+                                title={`${project.title} - ${project.genre}`}
+                                className="bg-cyan-900 rounded-lg p-4 m-auto w-full grid gap-4 transition-colors duration-150 hover:bg-cyan-800"
+                            >
                                 {project.imageUrl && (
-                                    <img
-                                        className="rounded-lg w-100"
-                                        src={project.imageUrl}
-                                        alt="Work-Image"
-                                    />
+                                    <div className="flex justify-center items-center">
+                                        <img
+                                            className="rounded-lg w-full object-cover"
+                                            src={project.imageUrl}
+                                            alt={`${project.title} image`}
+                                        />
+                                    </div>
                                 )}
-                            </div>
-                            <div className="flex flex-col justify-center items-start w-55 pb-0">
-                                <h2 className="text-2xl text-white font-bold my-5 mb-2">
-                                    {project.title}
-                                </h2>
-                                <b className="text-teal-500 mb-2">⎯⎯ {project.genre}</b>
-                                <p className="text-gray-300 text-sm leading-6 m-0">
-                                    {project.description}
-                                </p>
-                                {project.link && (
-                                    <button className="py-2 px-4 bg-white mt-4 text-black ease-in-out duration-150 border-2 border-white rounded-md hover:bg-gray-900 hover:border-gray-900 hover:text-white" style={{ width: "100%" }} title="Visit website">
+                                <div className="flex flex-col items-start">
+                                    <h2 className="text-2xl text-white font-bold mb-2">{project.title}</h2>
+                                    <b className="text-teal-500 mb-2">⎯⎯ {project.genre}</b>
+                                    <p className="text-gray-300 text-sm leading-6">{project.description}</p>
+                                    {project.link && (
                                         <a
                                             href={project.link}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex justify-between items-center gap-1 font-semibold text-md p-0 m-0"
+                                            className="py-2 px-4 mt-4 bg-white text-black font-semibold text-md border-2 border-white rounded-md flex items-center justify-between gap-2 transition-all duration-150 hover:bg-gray-900 hover:border-gray-900 hover:text-white"
+                                            style={{ width: "100%" }}
+                                            title="Visit website"
                                         >
                                             <span>Visit website</span>
                                             <HiOutlineArrowNarrowRight />
                                         </a>
-                                    </button>
-                                )}
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    ))
-                ) : (
-                    <p>No projects available yet.</p>
-                )}
-            </div>
+                        ))
+                    ) : (
+                        <p className="text-gray-500">No projects available yet.</p>
+                    )}
+                </div>
+            )}
         </div>
     );
 };

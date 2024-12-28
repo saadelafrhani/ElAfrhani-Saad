@@ -18,16 +18,16 @@ const Admin = () => {
     });
 
     // Loadings
-    const [addProjectLoading, setAddProjectLoading] = useState(false)
+    const [addProjectLoading, setAddProjectLoading] = useState(false);
     const [deleteProject, setDeleteProject] = useState({
         projectId: null,
         loading: false,
-    })
-    const [addExperiencesLoading, setAddExperiencesLoading] = useState(false)
+    });
+    const [addExperiencesLoading, setAddExperiencesLoading] = useState(false);
     const [deleteExperience, setDeleteExperience] = useState({
         experienceId: null,
         loading: false
-    })
+    });
 
     // Fetch projects and experiences
     useEffect(() => {
@@ -50,16 +50,16 @@ const Admin = () => {
     // Handle project and experience submissions
     const handleProjectSubmit = async (e) => {
         e.preventDefault();
-        setAddProjectLoading(true)
+        setAddProjectLoading(true);
         try {
             await addDoc(collection(db, "projects"), projectData);
             alert("Project added successfully!");
             setProjectData({ title: "", genre: "", description: "", imageUrl: "", link: "" });
-            setAddProjectLoading(false)
+            setAddProjectLoading(false);
             setShowProjectForm(false);
         } catch (error) {
             console.error("Error adding project: ", error);
-            setAddProjectLoading(false)
+            setAddProjectLoading(false);
         }
     };
 
@@ -69,14 +69,16 @@ const Admin = () => {
         try {
             await addDoc(collection(db, "experiences"), experienceData);
             alert("Experience added successfully!");
+            setExperienceData({ jobTitle: "", company: "", year: "", description: "" });
+            setAddExperiencesLoading(false);
+            setShowExperienceForm(false);
         } catch (error) {
             console.error("Error adding experience:", error);
-        } finally {
             setAddExperiencesLoading(false);
         }
     };
 
-       // Handle login
+    // Handle login
     const handleLogin = (e) => {
         e.preventDefault();
         const adminUsername = "saad";
