@@ -10,6 +10,7 @@ export default function Home() {
     <div className="p-2">
       <Head>
         <title>El Afrhani Saad - Software Developer</title>
+        <meta name="google-site-verification" content="o3PchDrl9Uj4bQiILrQsP_KjhXxdQYdTu5UZcL3cuPA" />
         <meta
           name="description"
           content="Full-stack Development Student with 2 years of focused learning in both front-end and 
